@@ -1,134 +1,108 @@
 import { motion } from 'framer-motion'
 
-const show = {
-    hidden: { opacity: 0, y: 24 },
-    show: (i) => ({
-        opacity: 1, y: 0,
-        transition: { duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }
-    })
-}
-
 export default function About() {
     return (
-        <section id="about" className="py-28 bg-white dark:bg-zinc-900">
+        <section id="about" className="py-24 bg-white dark:bg-zinc-900">
             <div className="wrap">
 
-                {/* Section header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-60px' }}
                     transition={{ duration: 0.5 }}
-                    className="flex items-center gap-4 mb-16"
+                    className="mb-12"
                 >
-                    <span className="label">Tentang Saya</span>
-                    <div className="flex-1 h-px bg-zinc-100 dark:bg-zinc-800"></div>
-                    <span className="text-xs text-zinc-300 dark:text-zinc-600">01</span>
+                    <p className="label mb-3">Tentang saya</p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-16 items-start">
-                    {/* Left: Bio */}
-                    <div>
-                        <motion.h2
-                            custom={0}
-                            initial="hidden"
-                            whileInView="show"
-                            viewport={{ once: true, margin: '-60px' }}
-                            variants={show}
-                            className="text-3xl font-black tracking-tight text-zinc-900 dark:text-zinc-100 mb-6 leading-snug"
-                        >
-                            Developer muda yang suka hal-hal yang rapi.
-                        </motion.h2>
-
-                        <motion.p
-                            custom={1}
-                            initial="hidden"
-                            whileInView="show"
-                            viewport={{ once: true, margin: '-60px' }}
-                            variants={show}
-                            className="text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4"
-                        >
-                            Nama saya <strong className="text-zinc-900 dark:text-zinc-100 font-semibold">Andi Musyofi</strong>. Saya pelajar SMK RPL yang sejak kecil penasaran kenapa layar komputer bisa jadi sangat interaktif. Rasa penasaran itu yang akhirnya membawa saya ke dunia web development.
-                        </motion.p>
-                        <motion.p
-                            custom={2}
-                            initial="hidden"
-                            whileInView="show"
-                            viewport={{ once: true, margin: '-60px' }}
-                            variants={show}
-                            className="text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8"
-                        >
-                            Sekarang saya sedang magang di{' '}
-                            <a href="https://crocodic.com/id/" target="_blank" rel="noreferrer"
-                                className="font-semibold text-zinc-900 dark:text-zinc-100 underline underline-offset-2 decoration-zinc-300 dark:decoration-zinc-700 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 transition-all">
+                <div className="grid md:grid-cols-5 gap-12 lg:gap-20">
+                    {/* Story - takes more space */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-60px' }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        className="md:col-span-3 space-y-5"
+                    >
+                        <p className="text-zinc-800 dark:text-zinc-200 text-lg leading-relaxed font-medium">
+                            Nama saya Andy, pelajar SMK jurusan RPL yang suka banget menghabiskan waktu di depan laptop untuk ngoprek code.
+                        </p>
+                        <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                            Awalnya iseng-iseng belajar HTML dari YouTube waktu kelas 10. Nggak nyangka sekarang udah bisa bikin website yang beneran dipake orang. Dua project yang udah saya rilis sampai sekarang adalah website kelas dan portfolio ini — keduanya saya bangun sendiri dari nol.
+                        </p>
+                        <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                            Sekarang lagi magang di{' '}
+                            <a
+                                href="https://crocodic.com/id/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-zinc-900 dark:text-zinc-100 font-semibold underline underline-offset-2 decoration-zinc-300 dark:decoration-zinc-700 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 transition-all"
+                            >
                                 Crocodic
-                            </a>{', '}
-                            sebuah software house di Jakarta yang mengerjakan proyek mobile, IoT, dan AI. Setiap harinya saya belajar dari developer senior yang pengalamannya jauh lebih banyak dari saya — dan itu sangat berharga.
-                        </motion.p>
+                            </a>
+                            , software house di Jakarta. Di sana saya banyak belajar soal bagaimana tim developer profesional bekerja — mulai dari cara ngatur git, review code, sampai deployment. Beda banget sama belajar sendiri di rumah.
+                        </p>
+                        <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                            Di luar coding, saya suka dengerin musik — playlist saya di website ini bisa jadi gambaran selera saya 😄
+                        </p>
 
-                        {/* Social links */}
-                        <motion.div
-                            custom={3}
-                            initial="hidden"
-                            whileInView="show"
-                            viewport={{ once: true, margin: '-60px' }}
-                            variants={show}
-                            className="flex gap-3"
-                        >
+                        {/* Socials inline */}
+                        <div className="flex gap-5 pt-2">
                             {[
-                                { label: 'GitHub →', href: 'https://github.com/Andyganteng' },
-                                { label: 'LinkedIn →', href: 'https://www.linkedin.com/in/andi-musyofi' },
-                                { label: 'Instagram →', href: 'https://www.instagram.com/andy_myfi' },
-                            ].map(s => (
-                                <a key={s.label} href={s.href} target="_blank" rel="noreferrer"
-                                    className="text-xs font-semibold text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
+                                { label: 'GitHub', href: 'https://github.com/Andyganteng' },
+                                { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andi-musyofi' },
+                                { label: 'Instagram', href: 'https://www.instagram.com/andy_myfi' },
+                            ].map((s) => (
+                                <motion.a
+                                    key={s.label}
+                                    href={s.href}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    whileHover={{ y: -2 }}
+                                    className="text-sm font-semibold text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                                >
                                     {s.label}
-                                </a>
+                                </motion.a>
                             ))}
-                        </motion.div>
-                    </div>
+                        </div>
+                    </motion.div>
 
-                    {/* Right: Stacked cards */}
-                    <div className="flex flex-col gap-3">
+                    {/* Side info */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: '-60px' }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="md:col-span-2 space-y-8"
+                    >
                         {[
                             {
-                                title: 'Magang',
-                                value: 'Crocodic — 2025',
-                                desc: 'Software house Jakarta · Mobile, IoT & AI',
-                                icon: '💼'
+                                title: 'Sekarang',
+                                lines: ['Magang di Crocodic, Jakarta', 'Belajar React & Next.js', 'Kelas 11 RPL']
                             },
                             {
-                                title: 'Pendidikan',
-                                value: 'SMK Rekayasa Perangkat Lunak',
-                                desc: 'Jurusan RPL · Aktif',
-                                icon: '🎓'
+                                title: 'Yang saya kuasai',
+                                lines: ['HTML, CSS, JavaScript', 'React, Vite, Tailwind CSS', 'PHP, Bootstrap 5', 'Git & GitHub']
                             },
                             {
-                                title: 'Tech Stack',
-                                value: 'HTML · CSS · JS · React · PHP',
-                                desc: 'Tailwind · Bootstrap · Git · Vite',
-                                icon: '⚒️'
+                                title: 'Kontak',
+                                lines: ['andymusfi@gmail.com']
                             },
-                        ].map((card, i) => (
+                        ].map((block, i) => (
                             <motion.div
-                                key={card.title}
-                                custom={i}
-                                initial="hidden"
-                                whileInView="show"
+                                key={block.title}
+                                initial={{ opacity: 0, y: 12 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: '-40px' }}
-                                variants={show}
-                                whileHover={{ x: 4 }}
-                                className="card p-5 flex items-start gap-4"
+                                transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
                             >
-                                <span className="text-2xl mt-0.5">{card.icon}</span>
-                                <div>
-                                    <p className="label mb-1">{card.title}</p>
-                                    <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{card.value}</p>
-                                    <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-0.5">{card.desc}</p>
-                                </div>
+                                <p className="label mb-3">{block.title}</p>
+                                {block.lines.map((l) => (
+                                    <p key={l} className="text-sm text-zinc-600 dark:text-zinc-400 mb-1">{l}</p>
+                                ))}
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
