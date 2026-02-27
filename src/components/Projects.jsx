@@ -1,117 +1,87 @@
 import { motion } from 'framer-motion'
 
-function Projects() {
-    const projects = [
-        {
-            title: "XI RPL 2 — Class Website",
-            desc: "Website kelas XI RPL 2 yang dibangun menggunakan React dan Vite, dilengkapi fitur galeri, struktur kelas, dan panel admin. Di-deploy di Vercel dengan integrasi Firebase Realtime Database.",
-            tech: ["React", "Vite", "Firebase", "Vercel", "TailwindCSS"],
-            link: "https://xirpl2.vercel.app/",
-            img: "/images/project-xirpl2.svg"
-        },
-        {
-            title: "Personal Portfolio",
-            desc: "Website portfolio personal yang sedang kamu lihat sekarang. Dibangun dengan React + Vite dan di-deploy di GitHub Pages menggunakan custom domain. Tampilan modern ala Apple / iOS 16.",
-            tech: ["React", "Vite", "Tailwind CSS", "GitHub Pages"],
-            link: "https://andyz.my.id/",
-            img: "/images/project-portfolio.svg"
-        }
-    ]
+const projects = [
+    {
+        num: '01',
+        title: 'XI RPL 2 — Class Website',
+        year: '2025',
+        desc: 'Website resmi kelas XI RPL 2. Ada galeri foto, struktur kelas, dan panel admin untuk manajemen konten secara real-time.',
+        tech: ['React', 'Firebase', 'Tailwind', 'Vercel'],
+        url: 'https://xirpl2.vercel.app/',
+    },
+    {
+        num: '02',
+        title: 'Personal Portfolio',
+        year: '2025',
+        desc: 'Website portfolio ini — dibangun dengan React + Vite, tema gelap/terang, dan music player terintegrasi. Di-host di GitHub Pages.',
+        tech: ['React', 'Vite', 'Tailwind', 'Framer Motion'],
+        url: 'https://andyz.my.id/',
+    },
+]
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.2 }
-        }
-    }
-
-    const projectVariants = {
-        hidden: { opacity: 0, y: 50, scale: 0.95 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            transition: { type: 'spring', stiffness: 200, damping: 24 }
-        }
-    }
-
+export default function Projects() {
     return (
-        <section className="py-24 md:py-32" id="projects">
-            <div className="apple-container">
-
+        <section id="projects" className="py-28 bg-white dark:bg-zinc-900">
+            <div className="wrap">
                 <motion.div
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: '-60px' }}
                     transition={{ duration: 0.5 }}
-                    className="mb-16"
+                    className="flex items-center gap-4 mb-16"
                 >
-                    <p className="text-xs font-bold tracking-widest text-gray-500 dark:text-gray-400 uppercase mb-3">Karya</p>
-                    <h2 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        Featured Projects
-                    </h2>
+                    <span className="label">Karya</span>
+                    <div className="flex-1 h-px bg-zinc-100 dark:bg-zinc-800"></div>
+                    <span className="text-xs text-zinc-300 dark:text-zinc-600">03</span>
                 </motion.div>
 
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    className="grid lg:grid-cols-2 gap-8"
-                >
-                    {projects.map((project, index) => (
+                <div className="flex flex-col divide-y divide-zinc-100 dark:divide-zinc-800">
+                    {projects.map((p, i) => (
                         <motion.a
-                            key={index}
-                            variants={projectVariants}
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            href={project.link}
+                            key={p.num}
+                            href={p.url}
                             target="_blank"
                             rel="noreferrer"
-                            className="group block glass-card rounded-[2rem] overflow-hidden dark:hover:bg-white/[0.08]"
+                            initial={{ opacity: 0, y: 24 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-40px' }}
+                            transition={{ duration: 0.5, delay: i * 0.1 }}
+                            whileHover="hover"
+                            className="group flex flex-col md:flex-row md:items-start gap-6 py-10 first:pt-0 last:pb-0 cursor-pointer"
                         >
-                            <div className="aspect-[16/10] overflow-hidden bg-gray-100 dark:bg-black/50 p-6 sm:p-10 pb-0">
-                                <div className="w-full h-full bg-white dark:bg-apple-gray rounded-t-2xl shadow-xl overflow-hidden border border-b-0 border-gray-200 dark:border-white/10 group-hover:-translate-y-2 transition-transform duration-500">
-                                    <img
-                                        src={project.img}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover object-top"
-                                    />
-                                </div>
-                            </div>
+                            {/* Number */}
+                            <span className="text-xs font-semibold text-zinc-300 dark:text-zinc-600 shrink-0 pt-1">{p.num}</span>
 
-                            <div className="p-8 sm:p-10 bg-white dark:bg-transparent">
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
-                                    {project.title}
-                                </h3>
-                                <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                                    {project.desc}
-                                </p>
-                                <div className="flex flex-wrap gap-2 mb-6">
-                                    {project.tech.map((tech, i) => (
-                                        <span
-                                            key={i}
-                                            className="px-3 py-1 bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 text-xs font-semibold rounded-full"
-                                        >
-                                            {tech}
-                                        </span>
+                            {/* Main */}
+                            <div className="flex-1">
+                                <div className="flex items-start justify-between gap-4 mb-3">
+                                    <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline underline-offset-4">
+                                        {p.title}
+                                    </h3>
+                                    <span className="text-xs text-zinc-400 shrink-0">{p.year}</span>
+                                </div>
+                                <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 max-w-xl">{p.desc}</p>
+                                <div className="flex flex-wrap gap-1.5">
+                                    {p.tech.map(t => (
+                                        <span key={t} className="tag">{t}</span>
                                     ))}
                                 </div>
-                                <div className="inline-flex items-center text-sm font-semibold text-gray-900 dark:text-white group-hover:underline">
-                                    Lihat Project
-                                    <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </div>
                             </div>
+
+                            {/* Arrow */}
+                            <motion.div
+                                variants={{ hover: { x: 4, y: -4 } }}
+                                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                                className="shrink-0 pt-1 text-zinc-300 dark:text-zinc-600 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors"
+                            >
+                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                                </svg>
+                            </motion.div>
                         </motion.a>
                     ))}
-                </motion.div>
-
+                </div>
             </div>
         </section>
     )
 }
-
-export default Projects

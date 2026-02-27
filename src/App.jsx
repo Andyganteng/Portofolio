@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -10,29 +10,20 @@ import MusicPlayer from './components/MusicPlayer'
 import './App.css'
 
 export const ThemeContext = createContext()
+export const useTheme = () => useContext(ThemeContext)
 
 function App() {
-    const [theme, setTheme] = useState(
-        localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'
-    )
+    const [isDark, setIsDark] = useState(() => {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches
+    })
 
     useEffect(() => {
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark')
-            localStorage.theme = 'dark'
-        } else {
-            document.documentElement.classList.remove('dark')
-            localStorage.theme = 'light'
-        }
-    }, [theme])
-
-    const toggleTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light')
-    }
+        document.documentElement.classList.toggle('dark', isDark)
+    }, [isDark])
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            <div className="min-h-screen selection:bg-apple-blue/30">
+        <ThemeContext.Provider value={{ isDark, setIsDark }}>
+            <div className="min-h-screen">
                 <Navbar />
                 <main>
                     <Hero />
@@ -41,8 +32,8 @@ function App() {
                     <Projects />
                     <Contact />
                 </main>
-                <MusicPlayer />
                 <Footer />
+                <MusicPlayer />
             </div>
         </ThemeContext.Provider>
     )
