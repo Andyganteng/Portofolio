@@ -3,7 +3,20 @@
    Inter font · Warm neutral palette · Smooth themes
    ───────────────────────────────────────────── */
 
-/* iOS / SF Pro system font — no external download needed */
+/* iOS / SF Pro system font — fetching from Apple */
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url('https://sf.apple.com/SFProDisplay-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url('https://sf.apple.com/SFProText-Regular.woff2') format('woff2');
+}
 
 @tailwind base;
 @tailwind components;
@@ -25,15 +38,17 @@
 }
 
 .dark {
-  --bg: #0e0e0f;
-  --bg-card: #161618;
-  --bg-muted: #1c1c1e;
-  --border: #27272a;
+  --bg: #000000;
+  /* True black for dark mode (iOS feel) */
+  --bg-card: #1c1c1e;
+  /* iOS elevated surface color */
+  --bg-muted: #2c2c2e;
+  --border: #38383a;
   --text: #f4f4f5;
   --text-2: #a1a1aa;
-  --text-3: #52525b;
+  --text-3: #636366;
   --accent: #f4f4f5;
-  --accent-fg: #18181b;
+  --accent-fg: #000000;
 }
 
 @layer base {
@@ -59,12 +74,14 @@
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     background-color: var(--bg);
     color: var(--text);
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     font-size: 16px;
     line-height: 1.6;
+    letter-spacing: -0.015em;
+    /* iOS compact letter spacing */
   }
 
   /* Transition bg + border on all elements for smooth theme toggle */
