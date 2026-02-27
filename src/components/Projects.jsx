@@ -1,78 +1,97 @@
 import { motion } from 'framer-motion'
+import { ScrollReveal, SpotlightCard, RollingText } from './Animations'
 
 const projects = [
     {
+        num: '01',
         title: 'Website Kelas XI RPL 2',
         year: '2025',
         url: 'https://xirpl2.vercel.app/',
         tech: ['React', 'Firebase', 'Tailwind CSS'],
-        story: 'Project pertama yang beneran dipake orang. Awalnya cuma coba-coba bikin website buat kelas, eh ternyata teman-teman suka dan sekarang dipakai untuk dokumentasi kegiatan kelas.',
+        story: 'Website dokumentasi dan informasi kelas yang dibangun menggunakan React dan Firebase. Proyek pertama yang aktif digunakan oleh rekan-rekan di kelas untuk menyimpan catatan kegiatan bersama.',
     },
     {
-        title: 'Portfolio ini',
+        num: '02',
+        title: 'Portfolio Pribadi',
         year: '2025',
         url: 'https://andyz.my.id/',
-        tech: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion'],
-        story: 'Website ini. Sudah dirombak berkali-kali sampai yang kamu lihat sekarang. Tujuannya sederhana — punya tempat di internet yang bisa saya tunjukin ke orang.',
+        tech: ['React', 'Vite', 'Tailwind', 'Framer Motion'],
+        story: 'Website portofolio yang anda lihat saat ini. Dibangun untuk mempresentasikan profil, kemampuan, dan karya secara profesional kepada calon klien maupun perekrut.',
     },
 ]
 
 export default function Projects() {
     return (
-        <section id="projects" className="py-24 bg-white dark:bg-zinc-900">
+        <section id="projects" className="py-28" style={{ backgroundColor: 'var(--bg-card)' }}>
             <div className="wrap">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-12"
-                >
-                    <p className="label mb-3">Karya</p>
-                    <h2 className="text-3xl font-black tracking-tight text-zinc-900 dark:text-zinc-100">Yang sudah pernah saya buat</h2>
-                    <p className="text-zinc-400 text-sm mt-2">Masih 2, tapi lebih baik dari nol.</p>
-                </motion.div>
+                <ScrollReveal className="mb-16">
+                    <p className="label mb-3">03 — Proyek</p>
+                    <h2 className="section-heading">
+                        Karya yang<br />
+                        <span className="section-heading-dim">telah dibuat.</span>
+                    </h2>
+                    <p className="text-[13px] font-medium mt-3" style={{ color: 'var(--text-3)' }}>
+                        Dua proyek aktif yang saat ini dapat diakses secara publik.
+                    </p>
+                </ScrollReveal>
 
-                <div className="space-y-0 divide-y divide-zinc-100 dark:divide-zinc-800">
+                <div className="grid sm:grid-cols-2 gap-4">
                     {projects.map((p, i) => (
-                        <motion.a
-                            key={p.title}
-                            href={p.url}
-                            target="_blank"
-                            rel="noreferrer"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: '-40px' }}
-                            transition={{ duration: 0.45, delay: i * 0.1 }}
-                            whileHover="hover"
-                            className="group flex items-start gap-6 py-8 first:pt-0 last:pb-0 cursor-pointer"
-                        >
-                            {/* Arrow */}
-                            <motion.div
-                                variants={{ hover: { x: 2, y: -2 } }}
-                                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                                className="mt-1 shrink-0 text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors"
+                        <ScrollReveal key={p.num} delay={i * 0.12}>
+                            <SpotlightCard
+                                spotlightColor="rgba(0,0,0,0.04)"
+                                className="rounded-3xl overflow-hidden h-full"
+                                style={{ backgroundColor: 'var(--bg-muted)', border: '1px solid var(--border)' }}
                             >
-                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-                                </svg>
-                            </motion.div>
+                                <motion.a
+                                    href={p.url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    whileHover={{ scale: 1.012 }}
+                                    whileTap={{ scale: 0.99 }}
+                                    transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+                                    className="flex flex-col h-full p-5 sm:p-7 group"
+                                >
+                                    {/* Header */}
+                                    <div className="flex items-center justify-between mb-8">
+                                        <span className="font-mono text-[11px] font-bold" style={{ color: 'var(--border)' }}>{p.num}</span>
+                                        <div className="flex items-center gap-3">
+                                            <span className="text-[12px]" style={{ color: 'var(--text-3)' }}>{p.year}</span>
+                                            <motion.div
+                                                className="w-7 h-7 rounded-full flex items-center justify-center"
+                                                style={{ border: '1px solid var(--border)', color: 'var(--text-3)' }}
+                                                whileHover={{
+                                                    rotate: -45,
+                                                    backgroundColor: 'var(--text)',
+                                                    borderColor: 'var(--text)',
+                                                    color: 'var(--bg)',
+                                                }}
+                                                transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+                                            >
+                                                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                                                </svg>
+                                            </motion.div>
+                                        </div>
+                                    </div>
 
-                            <div className="flex-1">
-                                <div className="flex items-center justify-between gap-4 mb-2">
-                                    <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline underline-offset-4">
+                                    <h3 className="text-[18px] font-black tracking-tight mb-3 leading-snug group-hover:underline underline-offset-4"
+                                        style={{ color: 'var(--text)' }}>
                                         {p.title}
                                     </h3>
-                                    <span className="text-xs text-zinc-300 dark:text-zinc-600 shrink-0">{p.year}</span>
-                                </div>
-                                <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-3 max-w-2xl">{p.story}</p>
-                                <div className="flex flex-wrap gap-1.5">
-                                    {p.tech.map((t) => (
-                                        <span key={t} className="tag">{t}</span>
-                                    ))}
-                                </div>
-                            </div>
-                        </motion.a>
+
+                                    <p className="text-[14px] leading-relaxed flex-1 mb-6" style={{ color: 'var(--text-2)' }}>
+                                        {p.story}
+                                    </p>
+
+                                    <div className="flex flex-wrap gap-1.5">
+                                        {p.tech.map(t => (
+                                            <span key={t} className="tag">{t}</span>
+                                        ))}
+                                    </div>
+                                </motion.a>
+                            </SpotlightCard>
+                        </ScrollReveal>
                     ))}
                 </div>
             </div>

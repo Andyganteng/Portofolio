@@ -1,109 +1,120 @@
 import { motion } from 'framer-motion'
+import { ScrollReveal, TiltCard } from './Animations'
 
 export default function About() {
     return (
-        <section id="about" className="py-24 bg-white dark:bg-zinc-900">
+        <section id="about" className="py-28" style={{ backgroundColor: 'var(--bg-card)' }}>
             <div className="wrap">
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-12"
-                >
-                    <p className="label mb-3">Tentang saya</p>
-                </motion.div>
+                <ScrollReveal className="mb-16">
+                    <p className="label mb-3">01 — Tentang</p>
+                    <h2 className="section-heading">
+                        Sedikit<br />
+                        <span className="section-heading-dim">tentang saya.</span>
+                    </h2>
+                </ScrollReveal>
 
                 <div className="grid md:grid-cols-5 gap-12 lg:gap-20">
-                    {/* Story - takes more space */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: '-60px' }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="md:col-span-3 space-y-5"
-                    >
-                        <p className="text-zinc-800 dark:text-zinc-200 text-lg leading-relaxed font-medium">
-                            Nama saya Andy, pelajar SMK jurusan RPL yang suka banget menghabiskan waktu di depan laptop untuk ngoprek code.
-                        </p>
-                        <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                            Awalnya iseng-iseng belajar HTML dari YouTube waktu kelas 10. Nggak nyangka sekarang udah bisa bikin website yang beneran dipake orang. Dua project yang udah saya rilis sampai sekarang adalah website kelas dan portfolio ini — keduanya saya bangun sendiri dari nol.
-                        </p>
-                        <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                            Sekarang lagi magang di{' '}
-                            <a
-                                href="https://crocodic.com/id/"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="text-zinc-900 dark:text-zinc-100 font-semibold underline underline-offset-2 decoration-zinc-300 dark:decoration-zinc-700 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 transition-all"
-                            >
-                                Crocodic
-                            </a>
-                            , software house di Jakarta. Di sana saya banyak belajar soal bagaimana tim developer profesional bekerja — mulai dari cara ngatur git, review code, sampai deployment. Beda banget sama belajar sendiri di rumah.
-                        </p>
-                        <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                            Di luar coding, saya suka dengerin musik — playlist saya di website ini bisa jadi gambaran selera saya 😄
-                        </p>
-
-                        {/* Socials inline */}
-                        <div className="flex gap-5 pt-2">
-                            {[
-                                { label: 'GitHub', href: 'https://github.com/Andyganteng' },
-                                { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andi-musyofi' },
-                                { label: 'Instagram', href: 'https://www.instagram.com/andy_myfi' },
-                            ].map((s) => (
-                                <motion.a
-                                    key={s.label}
-                                    href={s.href}
+                    {/* Story */}
+                    <div className="md:col-span-3 space-y-5">
+                        <ScrollReveal delay={0.05}>
+                            <p className="text-[16px] font-semibold leading-relaxed" style={{ color: 'var(--text)' }}>
+                                Nama saya Andi Musyofi, siswa SMK kelas XI jurusan Rekayasa Perangkat Lunak.
+                            </p>
+                        </ScrollReveal>
+                        <ScrollReveal delay={0.1}>
+                            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--text-2)' }}>
+                                Saya mulai belajar web development secara otodidak sejak di kelas 10, dimulai dari HTML dan CSS dasar. Seiring waktu, saya memperluas kemampuan ke JavaScript, React, dan ekosistem tooling modern seperti Vite dan Tailwind CSS.
+                            </p>
+                        </ScrollReveal>
+                        <ScrollReveal delay={0.15}>
+                            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--text-2)' }}>
+                                Saat ini saya sedang mengikuti kelas di{' '}
+                                <a
+                                    href="https://crocodic.com/id/"
                                     target="_blank"
                                     rel="noreferrer"
-                                    whileHover={{ y: -2 }}
-                                    className="text-sm font-semibold text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                                    className="font-semibold underline underline-offset-2 transition-all"
+                                    style={{ color: 'var(--text)', textDecorationColor: 'var(--border)' }}
+                                    onMouseEnter={e => e.target.style.textDecorationColor = 'var(--text)'}
+                                    onMouseLeave={e => e.target.style.textDecorationColor = 'var(--border)'}
                                 >
-                                    {s.label}
-                                </motion.a>
-                            ))}
-                        </div>
-                    </motion.div>
+                                    Crocodic
+                                </a>
+                                {' '}— sebuah software house di Semarang yang berfokus pada solusi mobile, IoT, dan kecerdasan buatan. Kelas ini memberikan saya pemahaman langsung tentang bagaimana proyek pengembangan perangkat lunak dikelola secara profesional.
+                            </p>
+                        </ScrollReveal>
+                        <ScrollReveal delay={0.2}>
+                            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--text-2)' }}>
+                                Saya tertarik pada pengembangan antarmuka pengguna — bagaimana sebuah halaman web bisa terasa responsif, nyaman, dan menyenangkan untuk digunakan. Saat ini fokus saya adalah memperdalam React dan mulai menjelajahi Next.js untuk pengembangan aplikasi yang lebih kompleks.
+                            </p>
+                        </ScrollReveal>
 
-                    {/* Side info */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: '-60px' }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="md:col-span-2 space-y-8"
-                    >
+                        <ScrollReveal delay={0.25}>
+                            <div className="flex flex-wrap gap-5 pt-3"
+                                style={{ borderTop: '1px solid var(--border)' }}
+                            >
+                                {[
+                                    { label: 'GitHub', href: 'https://github.com/Andyganteng' },
+                                    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andi-musyofi' },
+                                    { label: 'Instagram', href: 'https://www.instagram.com/andy_myfi' },
+                                ].map(s => (
+                                    <motion.a
+                                        key={s.label}
+                                        href={s.href}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        whileHover={{ y: -2 }}
+                                        className="text-[13px] font-semibold underline underline-offset-4 transition-all"
+                                        style={{ color: 'var(--text-3)', textDecorationColor: 'transparent' }}
+                                        onMouseEnter={e => { e.target.style.color = 'var(--text)'; e.target.style.textDecorationColor = 'var(--text)' }}
+                                        onMouseLeave={e => { e.target.style.color = 'var(--text-3)'; e.target.style.textDecorationColor = 'transparent' }}
+                                    >
+                                        {s.label} ↗
+                                    </motion.a>
+                                ))}
+                            </div>
+                        </ScrollReveal>
+                    </div>
+
+                    {/* Side info cards */}
+                    <div className="md:col-span-2 space-y-3">
                         {[
                             {
-                                title: 'Sekarang',
-                                lines: ['Magang di Crocodic, Jakarta', 'Belajar React & Next.js', 'Kelas 11 RPL']
+                                label: 'Status saat ini',
+                                lines: ['Kelas di Crocodic, Semarang', 'Kelas XI RPL · Aktif']
                             },
                             {
-                                title: 'Yang saya kuasai',
+                                label: 'Kemampuan teknis',
                                 lines: ['HTML, CSS, JavaScript', 'React, Vite, Tailwind CSS', 'PHP, Bootstrap 5', 'Git & GitHub']
                             },
                             {
-                                title: 'Kontak',
+                                label: 'Sedang dipelajari',
+                                lines: ['Next.js', 'TypeScript', 'Node.js']
+                            },
+                            {
+                                label: 'Kontak',
                                 lines: ['andymusfi@gmail.com']
                             },
                         ].map((block, i) => (
-                            <motion.div
-                                key={block.title}
-                                initial={{ opacity: 0, y: 12 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: '-40px' }}
-                                transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
-                            >
-                                <p className="label mb-3">{block.title}</p>
-                                {block.lines.map((l) => (
-                                    <p key={l} className="text-sm text-zinc-600 dark:text-zinc-400 mb-1">{l}</p>
-                                ))}
-                            </motion.div>
+                            <ScrollReveal key={block.label} delay={0.08 + i * 0.08}>
+                                <TiltCard
+                                    intensity={5}
+                                    className="p-5 rounded-2xl"
+                                    style={{ backgroundColor: 'var(--bg-muted)', border: '1px solid var(--border)' }}
+                                >
+                                    <p className="label mb-3">{block.label}</p>
+                                    {block.lines.map(l => (
+                                        <p key={l} className="text-[13.5px] leading-relaxed mb-0.5" style={{ color: 'var(--text-2)' }}>
+                                            {l}
+                                        </p>
+                                    ))}
+                                </TiltCard>
+                            </ScrollReveal>
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
+
             </div>
         </section>
     )
