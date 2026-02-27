@@ -2,201 +2,25 @@
 <html lang="id">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Andi Musyofi - Product Designer and Developer based in Indonesia. Portfolio website." />
-  <link rel="canonical" href="https://andyz.my.id/" />
-  <meta property="og:title" content="Andy MY - Personal Portfolio" />
-  <meta property="og:description" content="Product Designer and Developer, based in Indonesia." />
-  <meta property="og:url" content="https://andyz.my.id/" />
-  <meta property="og:type" content="website" />
-  <title>Andy MY - Personal Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Andi Musyofi - Web Developer & Creative, based in Indonesia. Portfolio website." />
+    <link rel="canonical" href="https://andyz.my.id/" />
+    <meta property="og:title" content="Andy. — Portfolio" />
+    <meta property="og:description" content="Web Developer & Creative, based in Indonesia." />
+    <meta property="og:url" content="https://andyz.my.id/" />
+    <meta property="og:type" content="website" />
+    <title>Andy. — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Andi Musyofi</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#portfolio">Works</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <header id="home" class="hero-section">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 order-md-2 text-center text-md-start fade-in">
-          <img src="images/profile.jpg" alt="Profil Andi M" class="img-fluid profile-pic" />
-        </div>
-        <div class="col-md-6 order-md-1 fade-in" style="transition-delay: 200ms">
-          <span class="intro-text">Introduction</span>
-          <h1>Andi Musyofi</h1>
-          <p class="lead">Product Designer and Developer, based in Indonesia.</p>
-          <a href="#contact" class="btn btn-warning btn-lg mt-3">Kontak Saya</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <section id="services" class="py-5">
-    <div class="container">
-      <div class="row text-center mb-5">
-        <div class="col-12 fade-in">
-          <h2 class="section-title">Services</h2>
-          <p class="section-subtitle">What I offer</p>
-        </div>
-      </div>
-      <div class="row text-center">
-        <div class="col-lg-4 col-md-6 mb-4 fade-in">
-          <div class="service-card">
-            <div class="card-body">
-              <h3>Product Designer</h3>
-              <p>Designing intuitive and engaging user experiences.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4 fade-in" style="transition-delay: 200ms">
-          <div class="service-card">
-            <div class="card-body">
-              <h3>Website Developer</h3>
-              <p>Building responsive and high-performance websites.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-12 fade-in" style="transition-delay: 400ms">
-          <div class="service-card">
-            <div class="card-body">
-              <h3>UI/UX Design</h3>
-              <p>Crafting beautiful and functional user interfaces.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="portfolio" class="py-5">
-    <div class="container">
-      <div class="row text-center mb-5">
-        <div class="col-12 fade-in">
-          <h2 class="section-title">All Project</h2>
-          <p class="section-subtitle">My recent work</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4 fade-in">
-          <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#projectModal"
-            data-title="Project Web Design" data-image="images/project1.jpg"
-            data-description="Proyek ini melibatkan desain ulang situs web e-commerce untuk meningkatkan pengalaman pengguna dan konversi penjualan. Fokus pada navigasi intuitif dan tampilan modern.">
-            <img src="images/project1.jpg" class="img-fluid" alt="Project 1" />
-            <div class="portfolio-info">
-              <h5>Web Design</h5>
-              <p>E-commerce Redesign</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-4 fade-in" style="transition-delay: 200ms">
-          <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#projectModal"
-            data-title="Mobile App UI/UX" data-image="images/project2.jpg"
-            data-description="Pengembangan UI/UX untuk aplikasi mobile pemesanan makanan, dengan fokus pada kemudahan penggunaan dan visual yang menarik. Termasuk prototyping interaktif.">
-            <img src="images/project2.jpg" class="img-fluid" alt="Project 2" />
-            <div class="portfolio-info">
-              <h5>UI/UX Design</h5>
-              <p>Food Delivery App</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-4 fade-in" style="transition-delay: 400ms">
-          <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#projectModal"
-            data-title="Landing Page Development" data-image="images/project3.jpg"
-            data-description="Membangun landing page yang responsif dan dioptimalkan untuk konversi, menampilkan produk baru dengan desain minimalis dan call-to-action yang jelas.">
-            <img src="images/project3.jpg" class="img-fluid" alt="Project 3" />
-            <div class="portfolio-info">
-              <h5>Web Development</h5>
-              <p>Product Launch Page</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 fade-in">
-          <h2>Hubungi Saya ;</h2>
-          <p>Untuk diskusikan proyek Anda. Saya Siap Membantu</p>
-          <p class="email-link">andymusfi@gmail.com</p>
-        </div>
-        <div class="col-md-6 fade-in" style="transition-delay: 200ms">
-          <form id="contactForm">
-            <div class="mb-3">
-              <input type="text" class="form-control" id="name" placeholder="Nama Anda" required />
-            </div>
-            <div class="mb-3">
-              <input type="email" class="form-control" id="email" placeholder="Email Anda" required />
-            </div>
-            <div class="mb-3">
-              <textarea class="form-control" id="message" rows="5" placeholder="Pesan Anda" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-warning w-100">Kirim</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="text-center py-4">
-    <p>&copy; 2025/2026 Andy MY</p>
-  </footer>
-
-  <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="projectModalLabel">Detail Proyek</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <img id="modal-img" src="" class="img-fluid mb-3" alt="Project Image" />
-          <p id="modal-desc"></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="custom-notification" class="custom-notification">
-    <p id="notification-text"></p>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 </body>
 
 </html>
